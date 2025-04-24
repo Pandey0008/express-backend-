@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <button id="connect">Connect to server</button>
+    <button id="disconnect">Disconnect from server</button> -->
+   <!-- <button id="event">Event</button> -->
+
+<input type="text">
+<button id="send">Send</button>
+
+    <script src="https://cdn.socket.io/4.8.1/socket.io.min.js" integrity="sha384-mkQ3/7FUtcGyoppY6bz/PORYoGqOl7/aSUMn2ymDOJcapfS6PHqxhRTMh1RR0Q6+" crossorigin="anonymous"></script>
+    <script> 
+       // var socket = io();
+   // socket.emit('typing');  
+    //socket.on('defg', function () {
+       // console.log('recieved');
+    //})
+    //socket.on('typing', function () {
+    //    console.log('typing...');
+  //  })
+//let socket;
+//let connect = document.querySelector('#connect');
+//let disconnect = document.querySelector('#disconnect');
+//connect.addEventListener('click', (evt) => {
+//     socket = io();
+//});
+//disconnect.addEventListener('click', (evt) => {
+//    socket.disconnect();
+//});
+//let socket = io();
+//document.querySelector('#event').addEventListener('click', () => {
+//    socket.emit('CustomEvent');
+//});
+
+let socket = io();
+let inp = document.querySelector('input');
+let send = document.querySelector('#send');
+send.addEventListener('click', () => {
+    socket.emit('somemessage', inp.value);
+});
+socket.on('message', (data) => {
+    console.log(data);
+});
+</script>
+</body>
+</html>
